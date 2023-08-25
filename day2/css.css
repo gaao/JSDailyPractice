@@ -1,0 +1,134 @@
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #212023;
+  gap: 30px;
+}
+a{
+  position: relative;
+  background-color: transparent;
+  color: aliceblue;
+  padding:20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border: 3px solid #fff;
+}
+
+
+a::before{
+  content: '';
+  position:absolute;
+  background-color: #212023;
+  /* inset: 2px; */
+}
+span{
+  position: relative;
+  z-index: 1;
+}
+/* 这段不知道为啥加，但是不加好像也可以 */
+/* i{
+  display: block;
+  position:absolute;
+  inset: 0;  
+} */
+ i::before{
+  content: '';
+  position: absolute;
+  top: -6.5px;
+  left: 100%;
+  width: 10px;
+  height: 5px;
+  transform: translateX(-50%);
+  background-color: transparent;
+  border: 2px solid blue;
+  transition: 0.5s;
+
+}
+/* i::after{
+  content: '';
+  position: absolute;
+  bottom: -6.5px;
+  left: 0%;
+  width: 10px;
+  height: 5px;
+  transform: translateX(-50%);
+  border: 2px solid blue;
+  transition: 0.5s;
+} */
+ a:hover{
+  box-shadow: 0 0 35px #996611;
+}
+.normal:hover i::before{
+  /* width: 20px;
+  left: 20%; */
+  animation: blockchain 5s linear infinite;
+  transform-origin: center;
+  /* transform: rotate(80deg); */
+}
+.normal a:hover i::after{
+  /* width: 20px;
+  left: 80%; */
+  /* animation: blockchain 1s linear; */
+}
+.yuan{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.yuan i::before{
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+.yuan:hover i::before{
+  animation: circular 5s linear infinite;
+  /* transform: rotate(280deg); */
+  transform-origin: 0px 57.5px;
+}
+@keyframes blockchain {
+  0% {
+    left: 100%;
+    top:  -6.5px;
+  }
+  25% {
+    left: 100%;
+    top: 100%;
+  }
+  50% {
+    left: 0%;
+    top: 100%;
+  }
+  75% {
+    left: 0%;
+    top: -6.5px;
+  }
+  100% {
+    left: 100%;
+    top:  -6.5px;
+  }
+}
+@keyframes circular {
+  0% {
+    transform:rotate(0deg);
+  }
+  20% {
+    transform:rotate(72deg);
+  }
+  40% {
+    transform:rotate(144deg);
+  }
+  60% {
+    transform:rotate(216deg);;
+  }
+  80% {
+    transform:rotate(288deg);
+  }
+  100% {
+    transform:rotate(360deg);
+  }
+
+}
